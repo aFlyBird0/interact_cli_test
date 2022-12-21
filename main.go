@@ -4,8 +4,8 @@ import "fmt"
 
 func main() {
 	fmt.Println("本项目用来模拟 DevStream 项目的交互式参数设置过程")
-	fmt.Println("本项目基于 quickstart 进行模拟，增加了 repo scaffolding 的设置")
-	owner, err := setPrompt("输入你的代码托管平台用户名")
+	fmt.Println("基于 quickstart 进行模拟，增加了 repo scaffolding 的设置")
+	owner, err := setPrompt("输入你的GitHub用户名")
 	if err != nil {
 		panic(err)
 	}
@@ -13,7 +13,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	token, err := setSecret("请输入你的代码托管平台的 token")
+	token, err := setSecret("请输入你的GitHub的 token")
 	if err != nil {
 		panic(err)
 	}
