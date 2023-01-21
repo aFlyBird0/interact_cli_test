@@ -1,11 +1,11 @@
-package main
+package ui
 
 import (
 	"errors"
 	"strings"
 )
 
-var validate = func(input string) error {
+var NotEmpty = func(input string) error {
 	if strings.TrimSpace(input) == "" {
 		return errors.New("输入不能为空")
 	}

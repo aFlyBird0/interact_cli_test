@@ -1,10 +1,12 @@
-package main
+package run
 
 import (
 	"fmt"
 	"strings"
 
 	"github.com/manifoldco/promptui"
+
+	"interact_cli_test/pkg/ui"
 )
 
 func SetRepoScaffolding() (url string, err error) {
@@ -24,7 +26,7 @@ func SetRepoScaffolding() (url string, err error) {
 }
 
 func askIfUseRepoScaffolding() (bool, error) {
-	return Confirm("是否使用仓库模板？", true)
+	return ui.Confirm("是否使用仓库模板？", true)
 }
 
 type pepper struct {

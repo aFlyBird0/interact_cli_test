@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fmt"
@@ -6,10 +6,15 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
-func setPrompt(label string) (string, error) {
+func SetPrompt(label string) (string, error) {
+	return SetPromptWithDefault(label, "")
+}
+
+func SetPromptWithDefault(label string, defaults string) (string, error) {
 	prompt := promptui.Prompt{
 		Label:    label,
-		Validate: validate,
+		Validate: NotEmpty,
+		Default:  defaults,
 	}
 
 	result, err := prompt.Run()
@@ -22,10 +27,11 @@ func setPrompt(label string) (string, error) {
 	return result, nil
 }
 
-func setSecret(label string) (string, error) {
+func SetSecret(label string) (string, error) {
 	prompt := promptui.Prompt{
-		Label: label,
-		Mask:  '*',
+		Label:    label,
+		Mask:     '*',
+		Validate: NotEmpty,
 	}
 
 	result, err := prompt.Run()
